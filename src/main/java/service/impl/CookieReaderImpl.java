@@ -25,6 +25,10 @@ public class CookieReaderImpl implements ICookieReader {
         final Map<String, Integer> cookieCount = new HashMap<>();
         final LocalDate targetDate = LocalDate.parse(dateStr);
 
+        if (!filePath.endsWith(".csv")) {
+            throw new IOException("Invalid file format, expected CSV");
+        }
+
         try (final BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             boolean isFirstLine = true;

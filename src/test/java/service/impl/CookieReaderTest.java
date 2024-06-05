@@ -13,6 +13,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * These are the unit test cases to test the actual behaviour of the cookie analyzer.
+ */
 public class CookieReaderTest {
     private static final String COOKIE_FILE_WITH_UNIQUE_RESULT = "test_cookie_unique.csv";
     private static final String COOKIE_FILE_WITH_MULTIPLE_RESULTS = "test_cookie_multiple.csv";
@@ -52,6 +55,9 @@ public class CookieReaderTest {
         System.setOut(new PrintStream(outContent));
     }
 
+    /*
+     * Test to validate the happy path of 1 unique most active cookie.
+     */
     @Test
     void testFindMostActiveCookies() {
         try {
@@ -65,6 +71,9 @@ public class CookieReaderTest {
         assertEquals(1, output.size());
     }
 
+    /*
+     * Test to validate happy path of multiple most active cookies.
+     */
     @Test
     void testFindMostActiveMultipleCookies() {
         try {
@@ -79,6 +88,9 @@ public class CookieReaderTest {
         assertEquals(2, output.size());
     }
 
+    /*
+     * Test to validate behaviour in case of empty file.
+     */
     @Test
     void testFindMostActiveEmptyFile() throws IOException {
         COOKIE_READER.findMostActiveCookies(getFilePath(COOKIE_FILE_WITH_NO_RESULT), TEST_DATE);
