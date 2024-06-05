@@ -15,6 +15,7 @@ public class CommandLineConfig {
 
     /**
      * Constructor to instantiate the Command Line Configurator.
+     *
      * @param optionsConfig - The options that we're expecting to parse from the command line.
      * @param args - Any other arguments that may be passed.
      */
@@ -29,6 +30,7 @@ public class CommandLineConfig {
      * A Getter to return the command line parser.
      * This is needed so that we can extract the options and
      * their corresponding values and process them.
+     *
      * @return - The command line parser
      * @throws ParseException in case of any exceptions while parsing the options.
      */
@@ -38,6 +40,7 @@ public class CommandLineConfig {
 
     /**
      * This method is responsible for printing the help message in case of any exceptions.
+     *
      * @param helpMessage - The command line syntax.
      */
     public void printHelp(final String helpMessage) {

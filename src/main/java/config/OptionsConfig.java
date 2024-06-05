@@ -20,6 +20,7 @@ public class OptionsConfig {
 
     /**
      * Method to add an option as per the user's requirement.
+     *
      * @param opt - The option to be added
      */
     public void addOption(final CommandLineOption opt) {
@@ -35,6 +36,7 @@ public class OptionsConfig {
 
     /**
      * Getter to return the options that have been added so far.
+     *
      * @return - All the options that have been added so far.
      */
     public Options getOptions() {

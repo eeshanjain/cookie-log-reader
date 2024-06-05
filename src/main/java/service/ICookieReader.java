@@ -12,12 +12,12 @@ public interface ICookieReader {
      * @return A list of most active cookies.
      * @throws IOException in case the file is not found.
      */
-    List<String> findMostActiveCookies(String filePath, String dateStr) throws IOException;
+    List<String> findMostActiveCookies(final String filePath, final String dateStr) throws IOException;
 
     /**
      * Method to process the most active cookies.
      *
      * @param mostActiveCookies - Most active cookies to be processed.
      */
-    void processMostActiveCookies(List<String> mostActiveCookies);
+    void processMostActiveCookies(final List<String> mostActiveCookies);
 }

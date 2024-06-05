@@ -18,14 +18,18 @@ import java.util.function.Predicate;
  * Implementation of {@link ICookieReader}.
  */
 public class CookieReaderImpl implements ICookieReader {
+    /* Ideally, we would be reading these from the application.properties file
+     * in the context of a Spring application.
+     */
     private static final String DELIMITER = ",";
+    private static final String VALID_FILE_TYPE = ".csv";
 
     @Override
     public List<String> findMostActiveCookies(final String filePath, final String dateStr) throws IOException {
         final Map<String, Integer> cookieCount = new HashMap<>();
         final LocalDate targetDate = LocalDate.parse(dateStr);
 
-        if (!filePath.endsWith(".csv")) {
+        if (!filePath.endsWith(VALID_FILE_TYPE)) {
             throw new IOException("Invalid file format, expected CSV");
         }
 
@@ -37,11 +41,11 @@ public class CookieReaderImpl implements ICookieReader {
                     isFirstLine = false;
                     continue;
                 }
-                String[] parts = line.split(DELIMITER);
+                final String[] parts = line.split(DELIMITER);
                 if (parts.length != 2) continue;
 
-                String cookie = parts[0];
-                ZonedDateTime timestamp = ZonedDateTime.parse(parts[1], DateTimeFormatter.ISO_ZONED_DATE_TIME);
+                final String cookie = parts[0];
+                final ZonedDateTime timestamp = ZonedDateTime.parse(parts[1], DateTimeFormatter.ISO_ZONED_DATE_TIME);
 
                 if (timestamp.toLocalDate().equals(targetDate)) {
                     cookieCount.put(cookie, cookieCount.getOrDefault(cookie, 0) + 1);

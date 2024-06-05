@@ -16,7 +16,7 @@ public class CommandLineOption {
         return option;
     }
 
-    public void setOption(String option) {
+    public void setOption(final String option) {
         this.option = option;
     }
 
@@ -24,7 +24,7 @@ public class CommandLineOption {
         return longOption;
     }
 
-    public void setLongOption(String longOption) {
+    public void setLongOption(final String longOption) {
         this.longOption = longOption;
     }
 
@@ -32,7 +32,7 @@ public class CommandLineOption {
         return hasArgs;
     }
 
-    public void setHasArgs(boolean hasArgs) {
+    public void setHasArgs(final boolean hasArgs) {
         this.hasArgs = hasArgs;
     }
 
@@ -40,7 +40,7 @@ public class CommandLineOption {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(final String description) {
         this.description = description;
     }
 
@@ -48,7 +48,7 @@ public class CommandLineOption {
         return required;
     }
 
-    public void setRequired(boolean required) {
+    public void setRequired(final boolean required) {
         this.required = required;
     }
 
@@ -56,6 +56,7 @@ public class CommandLineOption {
      * This is a method that has been created for the purposes of testing the features.
      * In a real world scenario, considering that we're using the Spring framework,
      * we would ideally be using application.properties to create some default options.
+     *
      * @return - List of default {@link CommandLineOption} options.
      */
     public static List<CommandLineOption> getDefaultOptions() {
